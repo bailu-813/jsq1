@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <style>
+    	table{
+    		margin:100 auto;
+    	}
+		.screen{
+			width: 350px;
+		    height: 70px;
+		    font-size: 24px;
+		    color: white;
+		    background-color: black;
+		    text-align:right; 
+		}
+    	.but{
+    		width: 80px;
+    		height: 60px;
+    		background-color : lightgray;
+    		font-size: 20px;
+    	}
+
+    </style>
+
+    <script type="text/javascript">
+    window.onload=function(){ 
+    //num数组存放元素对象      
+    var num=document.getElementsByClassName("but");
+	//获取屏幕对象
+    var scr=document.getElementsByClassName("screen")[0];
+	//通过for循环为每个按钮添加onclick事件
+    for(var i=0;i<num.length;i++)    
+    {
+      num[i].onclick=function(){   
+		  //如果点击AC，则清空屏幕
+       if(this.value=="AC"){       
+        	   scr.value="";
+        }
+        //当屏幕为空时判断是否点击的是小数点
+     	else if(scr.value==""&&this.value=="."){
+            scr.value="0.";
+       }
+        //当点击等于号时，用eval函数计算表达式的结果并显示到屏幕上
+      else if(this.value=="="){
+               scr.value=eval(scr.value); 
+       }
+        //当屏幕为空时，点击+、-、*、/时不做反应
+      else if(scr.value==""&&(this.value=="+"||this.value=="-"||this.value=="*"||this.value=="/"))
+       {
+          scr.value=="";
+       }
+      else{
+            	scr.value+=this.value;
+       }
+          }
+        }
+     } 
+        </script>
+
+</head>
+<body>
+ <table align="center">
+      <tr>
+          <td colspan="4"><input class="screen" type="text" disabled /></td>
+      </tr>
+      <tr>
+      	<td>
+			<input class="but" type="button" value="7" style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="8" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="9" 
+			       style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="+" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      </tr>
+      <tr>
+      	<td>
+			<input class="but" type="button" value="4"
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="5" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="6" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="-"
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      </tr>
+      <tr>
+      	<td>
+			<input class="but" type="button" value="1" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="2" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="3" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="*" 
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      </tr>
+      <tr>
+      	<td colspan="2"><input class="but" type="button" value="0" 
+				   style="width: 170px;font-size: 25px">
+		</td>
+      	<td>
+			<input class="but" type="button" value="."
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+		<td>
+			<input class="but" type="button" value="/"
+				   style="height: 60px; width: 80px; font-size: 25px">
+		</td>
+      </tr>
+	  <tr>
+	  	<td colspan="2"><input class="but_ac but" type="button" value="AC" 
+				  style="height: 60px ; width: 170px ; font-size: 25px"></td>
+	  	<td colspan="2"><input class="but" type="button" value="=" 
+				  style="height: 60px ;width: 169px ; background-color:orange;color:white ; font-size: 25px"></td>
+	  </tr>
+     
+
+</table>
+</body>
+</html>
